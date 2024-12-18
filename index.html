@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - ZIOLES Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Inicia o EmailJS
+        (function(){
+            emailjs.init("7mn4fzN7hjmzs5knD"); // Substitua com seu User ID
+        })();
+
+        // Função para ativar/desativar o campo de valor
+        function togglePriceField() {
+            var productType = document.getElementById("product").value;
+            var priceField = document.getElementById("price");
+            
+            if (productType === "conta") {
+                priceField.disabled = false;
+            } else {
+                priceField.disabled = true;
+                priceField.value = ""; // Limpa o valor caso a opção não seja conta
+            }
+        }
+
+        // Função para enviar o formulário
+        function sendEmail() {
+            var params = {
+                from_name: document.getElementById("name").value,
+                from_email: document.getElementById("email").value,
+                product: document.getElementById("product").value,
+                price: document.getElementById("price").value,
+                message: document.getElementById("message").value
+            };
+
+            // Envia o e-mail usando o template configurado no EmailJS
+            emailjs.send('service_odoytvp', 'template_fg9ijtm', params)
+                .then(function(response) {
+                    alert("Mensagem enviada com sucesso!");
+                }, function(error) {
+                    alert("Erro ao enviar mensagem: " + error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <img src="https://photos.app.goo.gl/oAY1bKqym1ob3mFx5" alt="Banner da ZIOLES Store">
+        </div>
+    </header>
+
+    <main>
+        <section id="contato">
+            <h2>Contato via E-mail</h2>
+            <form onsubmit="event.preventDefault(); sendEmail();">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" required><br><br>
+                
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" required><br><br>
+                
+                <label for="product">Produto desejado:</label>
+                <select id="product" name="product" onchange="togglePriceField()" required>
+                    <option value="conta">Conta de Blox Fruits</option>
+                    <option value="fruta">Fruta Permanente</option>
+                    <option value="passe">Passe</option>
+                </select><br><br>
+                
+                <label for="price">Valor a ser pago:</label>
+                <input type="number" id="price" name="price" disabled><br><br>
+
+                <label for="message">Mensagem:</label><br>
+                <textarea id="message" rows="4" required></textarea><br><br>
+                
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ZIOLES Store. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
