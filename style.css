@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1a1a1a;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+main {
+    padding: 20px;
+    background-color: #fff;
+}
+
+h2 {
+    color: #2d6a4f;
+}
+
+#contato {
+    background-color: #e3f9e5;
+    padding: 20px;
+    border-left: 5px solid #2d6a4f;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2d6a4f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #49a27f;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
